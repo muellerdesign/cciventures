@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.init={privacy:{cookies_enabled:true}};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var i,o=t("ee"),a=t(24),c={};try{i=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,i.indexOf("dev")!==-1&&(c.dev=!0),i.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&o.on("internal-error",function(t){r(t.stack)}),c.dev&&o.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{p?p-=1:i(c||new UncaughtException(t,e,n),!0)}catch(f){try{o("ierr",[f,s.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function i(t,e){var n=e?null:s.now();o("err",[t,n])}var o=t("handle"),a=t(25),c=t("ee"),s=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),s.xhrWrappable&&t(10),d=!0)}c.on("fn-start",function(t,e,n){d&&(p+=1)}),c.on("fn-err",function(t,e,n){d&&!n[l]&&(f(n,l,function(){return!0}),this.thrown=!0,i(n))}),c.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),c.on("internal-error",function(t){o("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var i=t("ee"),o=t("handle"),a=t(9),c=t(8),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;i.on(m,function(t,e){var n=t[0];n instanceof x&&(this.bstStart=y.now())}),i.on(w,function(t,e){var n=t[0];n instanceof x&&o("bst",[n,e,this.bstStart,y.now()])}),a.on(m,function(t,e,n){this.bstStart=y.now(),this.bstType=n}),a.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),this.bstType])}),c.on(m,function(){this.bstStart=y.now()}),c.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),"requestAnimationFrame"])}),i.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),i.on(g+h,function(t){o("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&i(e)}function i(t){c.inPlace(t,[u,d],"-",o)}function o(t,e){return t[1]}var a=t("ee").get("events"),c=t("wrap-function")(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(i(window),i(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=o(arguments),e={};i.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var c=r.apply(this,t);return i.emit(n+"start",[t,a],c),c.then(function(t){return i.emit(n+"end",[null,t],c),t},function(t){throw i.emit(n+"end",[t],c),t})})}var i=t("ee").get("fetch"),o=t(25),a=t(24);e.exports=i;var c=window,s="fetch-",f=s+"body-",u=["arrayBuffer","blob","json","text","formData"],d=c.Request,l=c.Response,p=c.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,e){r(d[h],e,f),r(l[h],e,f)}),r(c,"fetch",s),i.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),i.emit(s+"done",[null,e],n)}else i.emit(s+"done",[t],n)}))},{}],7:[function(t,e,n){var r=t("ee").get("history"),i=t("wrap-function")(r);e.exports=r;var o=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;o&&o.pushState&&o.replaceState&&(a=o),i.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,e,n){var r=t("ee").get("raf"),i=t("wrap-function")(r),o="equestAnimationFrame";e.exports=r,i.inPlace(window,["r"+o,"mozR"+o,"webkitR"+o,"msR"+o],"raf-"),r.on("raf-start",function(t){t[0]=i(t[0],"fn-")})},{}],9:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function i(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var o=t("ee").get("timer"),a=t("wrap-function")(o),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=o,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),o.on(s+u,r),o.on(c+u,i)},{}],10:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function i(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",c)}function o(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=u;var x=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(v,i,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),o(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,e,n){function r(t){if(!c(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=p.generateSpanId(),m=p.generateTraceId(),w=Date.now(),v={spanId:h,traceId:m,timestamp:w};return(t.sameOrigin||s(t)&&l())&&(v.traceContextParentHeader=i(h,m),v.traceContextStateHeader=o(h,w,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&s(t)&&d())&&(v.newrelicHeader=a(h,m,w,n,r,f)),v}function i(t,e){return"00-"+e+"-"+t+"-01"}function o(t,e,n,r,i){var o=0,a="",c=1,s="",f="";return i+"@nr="+o+"-"+c+"-"+n+"-"+r+"-"+t+"-"+a+"-"+s+"-"+f+"-"+e}function a(t,e,n,r,i,o){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var c={v:[0,1],d:{ty:"Browser",ac:r,ap:i,id:t,tr:e,ti:n}};return o&&r!==o&&(c.d.tk=o),btoa(JSON.stringify(c))}function c(t){return f()&&s(t)}function s(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var i=h(n.allowed_origins[r]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function l(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var p=t(21),h=t(13);e.exports={generateTracePayload:r,shouldGenerateTrace:c}},{}],12:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):o(this,t),n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=s(e),t.sameOrigin=t.parsedOrigin.sameOrigin}function o(t,e){t.params.status=e.status;var n=w(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(13),f=t(11).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(17),m=t(16),w=t(14),v=window.XMLHttpRequest;a.features.xhr=!0,t(10),t(6),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){o(e,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],i=this;if(n&&r){var o=m(r);o&&(n.txSize=o)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||i.loadCaptureCalled||(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<l;c++)e.addEventListener(d[c],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof v&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=s(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var i=f(this.parsedOrigin);if(i&&(i.newrelicHeader||i.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var o={};for(var a in r)o[a]=r[a];o.headers=new Headers(r.headers||{}),e(o.headers,i)&&(this.dt=i),t.length>1?t[1]=o:t.push(o)}else t[0]&&t[0].headers&&e(t[0].headers,i)&&(this.dt=i)})}},{}],13:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,i={};e.href=t,i.port=e.port;var o=e.href.split("://");!i.port&&o[1]&&(i.port=o[1].split("/")[0].split("@").pop().split(":")[1]),i.port&&"0"!==i.port||(i.port="https"===o[0]?"443":"80"),i.hostname=e.hostname||n.hostname,i.pathname=e.pathname,i.protocol=o[0],"/"!==i.pathname.charAt(0)&&(i.pathname="/"+i.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,c=e.hostname===document.domain&&e.port===n.port;return i.sameOrigin=a&&(!e.hostname||c),"/"===i.pathname&&(r[t]=i),i}},{}],14:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?i(t.response):"text"===n||""===n||void 0===n?i(t.responseText):void 0}var i=t(16);e.exports=r},{}],15:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[f.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(24),c=t(25),s=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,e){u[e]=i(l+e,!0,"api")}),u.addPageAction=i(l+"addPageAction",!0),u.setCurrentRouteName=i(l+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(p+"tracer",[f.now(),t,n],r),function(){if(s.emit((i?"":"no-")+"fn-start",[f.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=i(p+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,f.now(),!1,e])}},{}],16:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],17:[function(t,e,n){var r=0,i=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);i&&(r=+i[1]),e.exports=r},{}],18:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(26);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],19:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],20:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof h&&!w){var e=Math.round(t.timeStamp),n={type:t.type};e<=l.now()?n.fid=l.now()-e:e>l.offset&&e<=Date.now()?(e-=l.offset,n.fid=l.now()-e):e=l.now(),w=!0,d("timing",["fi",e,n])}}function c(t){d("pageHide",[l.now(),t])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var s,f,u,d=t("handle"),l=t("loader"),p=t(23),h=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(m){}f=new PerformanceObserver(i);try{f.observe({entryTypes:["largest-contentful-paint"]})}catch(m){}u=new PerformanceObserver(o);try{u.observe({type:"layout-shift",buffered:!0})}catch(m){}}if("addEventListener"in document){var w=!1,v=["click","keydown","mousedown","pointerdown","touchstart"];v.forEach(function(t){document.addEventListener(t,a,!1)})}p(c)}},{}],21:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var i,o="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",c=0;c<o.length;c++)i=o[c],"x"===i?a+=t().toString(16):"y"===i?(i=3&t()|8,a+=i.toString(16)):a+=i;return a}function i(){return a(16)}function o(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,i=window.crypto||window.msCrypto;i&&i.getRandomValues&&Uint8Array&&(n=i.getRandomValues(new Uint8Array(31)));for(var o=[],a=0;a<t;a++)o.push(e().toString(16));return o.join("")}e.exports={generateUuid:r,generateSpanId:i,generateTraceId:o}},{}],22:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,s=c.match(a);s&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=s[1])}e.exports={agent:i,version:o,match:r}},{}],23:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],24:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],25:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],26:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?f(t,s,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!p.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),s=m(n),f=s.length,u=0;u<f;u++)s[u].apply(c,r);var l=d[y[n]];return l&&l.push([x,n,r,c]),c}}function o(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function w(t){return l[t]=l[t]||i(n)}function v(t,e){u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:o,addEventListener:o,removeEventListener:h,emit:n,get:w,listeners:m,context:e,buffer:v,abort:c,aborted:!1};return x}function o(t){return f(t,s,a)}function a(){return new r}function c(){(d.api||d.feature)&&(p.aborted=!0,d=p.backlog={})}var s="nr@context",f=t("gos"),u=t(24),d={},l={},p=e.exports=i();e.exports.getOrSetContext=o,p.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=b.info=NREUM.info,e=p.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(y,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=t(18),c=t("handle"),s=t(24),f=t("ee"),u=t(22),d=t(19),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;if(d(l.location)){NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var g=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=e.exports={offset:a.getLastTimestamp(),now:a,origin:g,features:{},xhrWrappable:x,userAgent:u};t(15),t(20),p[h]?(p[h]("DOMContentLoaded",o,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",i),l[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,s,f){function nrWrapper(){var o,a,u,l;try{a=this,o=d(arguments),u="function"==typeof r?r(o,a):r||{}}catch(p){i([p,"",[o,a,s],u],t)}c(n+"start",[o,a,s],u,f);try{return l=e.apply(a,o)}catch(h){throw c(n+"err",[o,a,h],u,f),h}finally{c(n+"end",[o,a,l],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[l]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,s,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)s=e[f],c=t[s],a(c)||(t[s]=n(c,u?s+r:r,i,s,o))}function c(n,r,o,a){if(!h||e){var c=h;h=!0;try{t.emit(n,r,o,e,a)}catch(s){i([s,n,r,o],t)}h=c}}return t||(t=u),n.inPlace=r,n.flag=l,n}function i(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)p.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[l])}function c(t,e){var n=e(t);return n[l]=t,o(t,n,u),n}function s(t,e,n){var r=t[e];t[e]=c(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(25),l="nr@original",p=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=s,e.exports.argsToArray=f},{}]},{},["loader",2,12,4,3]);;NREUM.loader_config={accountID:"815479",trustKey:"815479",agentID:"252387427",licenseKey:"bf220c09e2",applicationID:"252387427"};NREUM.info={beacon:"bam-cell.nr-data.net",errorBeacon:"bam-cell.nr-data.net",licenseKey:"bf220c09e2",applicationID:"252387427",sa:1};(function(){var sitevars=JSON.parse(atob("eyJjbG9uZV9oYXNoIjoiZTRhYzUwNWUiLCJodHRwX3Byb3RvY29sIjoiMS4xIiwic2l0ZV9ncm91cCI6MTYsInNob3J0X25hbWUiOiJjY2l2ZW50dXJlcyIsImNsaWVudF91c2VyIjoibXVlbGxlcjIiLCJsb2dfaGFzaCI6ImU0YWM1MDVlIiwiY2FjaGVfc3RhdHVzIjoiTUlTUyIsImNsaWVudF9uYW1lIjoiTXVlbGxlciBEZXNpZ24ncyBTaXRlcyIsInVhU3RyaW5nIjoiV29yZFByZXNzXC81LjQuNzsgaHR0cHM6XC9cL2NjaXZlbnR1cmVzLnNpdGVkaXN0cmljdC5jb20iLCJ1cmxfcGF0aCI6IlwvdmVudHVyZXNfYmlvXC9qdWxpZS1jYXJ0ZXJcLyIsImNsaWVudF90eXBlIjoic3RhbmRhcmQiLCJwYWdlX3VybCI6IlwvdmVudHVyZXNfYmlvXC9qdWxpZS1jYXJ0ZXJcLyIsInNkX2hvc3QiOiJob3N0LTUiLCJjbG9uZV9pZCI6ODM1MSwicmVxdWVzdF9pZCI6ImM0MTAzMTZiYWZkNmI4MTI4NGRjYzA3NTM2ZDA2MjY5IiwiY2xpZW50X2lkIjo2MTUsImJhc2VfZG9tYWluIjoiY2NpdmVudHVyZXMuc2l0ZWRpc3RyaWN0LmNvbSIsInNpdGVfaWQiOjUyMjE2LCJzb3VyY2VfaXAiOiIzLjIxMi4xNjIuNzIiLCJxdWVyeV9zdHJpbmciOiIifQ=="));for(const key of Object.keys(sitevars)){newrelic.setCustomAttribute(key,sitevars[key]);}})();(function() {var re = document.removeEventListener,ae = document.addEventListener,ev = ['scroll', 'mousemove', 'touchmove', 'touchstart'];function p() {var value = 'm';var date = new Date();date.setTime(date.getTime() + (30*24*60*60*1000));var expires = "; expires=" + date.toUTCString();document.cookie = "sd_fw_hash=d72ffdaf9e43aa45586aab9f396ff71a" + expires + "; path=/";for (i = 0; i < ev.length; i++) {re(ev[i], p, false);}};window.addEventListener('load', function() {setTimeout(function() {for (i = 0; i < ev.length; i++) {ae(ev[i], p, false);}ae('scroll', p, false);}, 2000);});})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<title>Julie Carter &#8211; Cleveland Clinic Ventures</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link href="https://fonts.gstatic.com/" crossorigin rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Cleveland Clinic Ventures &raquo; Feed" href="https://davekuhar.github.io/cciventures/feed/">
+<link rel="alternate" type="application/rss+xml" title="Cleveland Clinic Ventures &raquo; Comments Feed" href="https://davekuhar.github.io/cciventures/comments/feed/">
+		<script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/davekuhar.github.io\/cciventures\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.7"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style>img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://davekuhar.github.io/cciventures/wp-includes/css/dist/block-library/style.min.css?ver=5.4.7" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="https://davekuhar.github.io/cciventures/wp-includes/css/dist/block-library/theme.min.css?ver=5.4.7" media="all">
+<link rel="stylesheet" id="font-awesome-5-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bb-plugin/fonts/fontawesome/5.13.0/css/all.min.css?ver=2.3.2.5" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bb-plugin/fonts/fontawesome/5.13.0/css/v4-shims.min.css?ver=2.3.2.5" media="all">
+<link rel="stylesheet" id="fl-builder-layout-bundle-feb25dfc7482c1ae397b2a9647e6c936-css" href="https://davekuhar.github.io/cciventures/wp-content/uploads/bb-plugin/cache/feb25dfc7482c1ae397b2a9647e6c936-layout-bundle.css?ver=2.3.2.5-1.3.1" media="all">
+<link rel="stylesheet" id="conditional-elements-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/conditional-elements/css/conditional-elements.css?ver=5.4.7" media="all">
+<link rel="stylesheet" id="notes-tooltip-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/notes/css/notes-tooltips.css?ver=5.4.7" media="all">
+<link rel="stylesheet" id="notes-helper-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/notes/css/notes-helper.css?ver=5.4.7" media="all">
+<link rel="stylesheet" id="notes-tiptip-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/notes/css/tiptip.css?ver=5.4.7" media="all">
+<link rel="stylesheet" id="sticky_style-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/sticky-column/css/sticky-column.css?ver=5.4.7" media="all">
+<link rel="stylesheet" id="jquery-magnificpopup-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bb-plugin/css/jquery.magnificpopup.min.css?ver=2.3.2.5" media="all">
+<link rel="stylesheet" id="bootstrap-4-css" href="https://davekuhar.github.io/cciventures/wp-content/themes/bb-theme/css/bootstrap-4.min.css?ver=1.7.6.2" media="all">
+<link rel="stylesheet" id="fl-automator-skin-css" href="https://davekuhar.github.io/cciventures/wp-content/uploads/bb-theme/skin-5eb249952bbd5.css?ver=1.7.6.2" media="all">
+<link rel="stylesheet" id="fl-child-theme-css" href="https://davekuhar.github.io/cciventures/wp-content/themes/bb-ccinnovations/style.css?ver=5.4.7" media="all">
+<link rel="stylesheet" id="pp-animate-css" href="https://davekuhar.github.io/cciventures/wp-content/plugins/bbpowerpack/assets/css/animate.min.css?ver=3.5.1" media="all">
+<link rel="stylesheet" id="fl-builder-google-fonts-d2bc5205d092847ef5340e1d6285676d-css" href="//fonts.googleapis.com/css?family=News+Cycle%3A700%2C300%2C400&#038;ver=5.4.7" media="all">
+<script src="https://davekuhar.github.io/cciventures/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
+<script>
+var cssTarget = "img.style-svg";
+var ForceInlineSVGActive = "false";
+</script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/svg-support/js/min/svgs-inline-min.js?ver=1.0.0"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-includes/js/imagesloaded.min.js?ver=5.4.7"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/conditional-elements/js/conditional-elements.js?ver=5.4.7"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/notes/js/tiptip.js?ver=5.4.7"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/notes/js/notes-tooltips.js?ver=5.4.7"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/notes/js/notes-helper.js?ver=5.4.7"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/bt-pro/includes/sticky-column/js/sticky-column.js?ver=5.4.7"></script>
+<link rel="https://api.w.org/" href="https://davekuhar.github.io/cciventures/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://davekuhar.github.io/cciventures/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://davekuhar.github.io/cciventures/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Joseph Rich, JD" href="https://davekuhar.github.io/cciventures/ventures_bio/joseph-rich/">
+<link rel="next" title="Mark Stovsky, MD" href="https://davekuhar.github.io/cciventures/ventures_bio/mark-stovsky-md/">
+<meta name="generator" content="WordPress 5.4.7">
+<link rel="canonical" href="https://davekuhar.github.io/cciventures/ventures_bio/julie-carter/">
+<link rel="shortlink" href="https://davekuhar.github.io/cciventures/?p=857">
+<link rel="alternate" type="application/json+oembed" href="https://davekuhar.github.io/cciventures/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps://davekuhar.github.io/cciventures%2Fventures_bio%2Fjulie-carter%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://davekuhar.github.io/cciventures/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps://davekuhar.github.io/cciventures%2Fventures_bio%2Fjulie-carter%2F&#038;format=xml">
+<link rel="icon" href="https://davekuhar.github.io/cciventures/wp-content/uploads/2019/09/cropped-favicon-clear-125x125.png" sizes="32x32">
+<link rel="icon" href="https://davekuhar.github.io/cciventures/wp-content/uploads/2019/09/cropped-favicon-clear-240x240.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://davekuhar.github.io/cciventures/wp-content/uploads/2019/09/cropped-favicon-clear-240x240.png">
+<meta name="msapplication-TileImage" content="https://davekuhar.github.io/cciventures/wp-content/uploads/2019/09/cropped-favicon-clear.png">
+<script id="fl-theme-custom-js">function showSearch() {
+  var x = document.getElementById("global-search-row");
+  if (x.style.top === "96px") {
+    x.style.top = "-130px";
+  } else {
+    x.style.top = "96px";
+  }
+}</script>
+</head>
+<body class="ventures_bio-template-default single single-ventures_bio postid-857 page-julie-carter fl-theme-builder-header fl-theme-builder-footer fl-theme-builder-singular fl-theme-builder-part fl-framework-bootstrap-4 fl-preset-default fl-full-width fl-search-active has-blocks" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+<a aria-label="Skip to content" class="fl-screen-reader-text" href="#fl-main-content">Skip to content</a><div class="fl-page">
+	<header class="fl-builder-content fl-builder-content-30 fl-builder-global-templates-locked" data-post-id="30" data-type="header" data-sticky="0" data-sticky-breakpoint="medium" data-shrink="0" data-overlay="0" data-overlay-bg="transparent" itemscope="itemscope" itemtype="http://schema.org/WPHeader"><div class="fl-row fl-row-full-width fl-row-bg-color fl-node-5d89749b23f67" data-node="5d89749b23f67">
+	<div class="fl-row-content-wrap">
+						<div class="fl-row-content fl-row-fixed-width fl-node-content">
+		
+<div class="fl-col-group fl-node-5d89749b23f68 fl-col-group-equal-height fl-col-group-align-center" data-node="5d89749b23f68">
+			<div class="fl-col fl-node-5d89749b23f69 fl-col-small" data-node="5d89749b23f69">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-photo fl-node-5d8976c2c2f3b header-cc-logo" data-node="5d8976c2c2f3b">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-photo fl-photo-align-center" itemscope itemtype="https://schema.org/ImageObject">
+	<div class="fl-photo-content fl-photo-img-svg">
+				<a href="https://davekuhar.github.io/cciventures/" target="_self" itemprop="url">
+				<img class="fl-photo-img wp-image-171 size-full" src="https://davekuhar.github.io/cciventures/wp-content/uploads/cleveland-clinic-white.svg" alt="cleveland-clinic-white" itemprop="image" height="" width="" title="cleveland-clinic-white" data-no-lazy="1">
+				</a>
+					</div>
+	</div>
+	</div>
+</div>
+	</div>
+</div>
+			<div class="fl-col fl-node-5d89749b23f6a" data-node="5d89749b23f6a">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-menu fl-node-5d89754ddf040" data-node="5d89754ddf040">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-menu fl-menu-responsive-toggle-medium-mobile fl-menu-responsive-flyout-overlay fl-flyout-left">
+	<button class="fl-menu-mobile-toggle hamburger" aria-label="Menu"><span class="svg-container"><svg version="1.1" class="hamburger-menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 512 512">
+<rect class="fl-hamburger-menu-top" width="512" height="102"></rect>
+<rect class="fl-hamburger-menu-middle" y="205" width="512" height="102"></rect>
+<rect class="fl-hamburger-menu-bottom" y="410" width="512" height="102"></rect>
+</svg>
+</span></button>	<div class="fl-clear"></div>
+	<nav aria-label="Menu" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement"><ul id="menu-ventures-menu" class="menu fl-menu-horizontal fl-toggle-none">
+<li id="menu-item-1978" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent"><a href="https://davekuhar.github.io/cciventures/news/">News</a></li>
+<li id="menu-item-1934" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://davekuhar.github.io/cciventures/portfolio/">Portfolio</a></li>
+<li id="menu-item-1935" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://davekuhar.github.io/cciventures/team/">Team</a></li>
+<li id="menu-item-1938" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://davekuhar.github.io/cciventures/contact-us/">Contact</a></li>
+<li id="menu-item-1940" class="menu-search-icon menu-item menu-item-type-custom menu-item-object-custom"><a><button onclick="showSearch()"><span class="fl-icon" id="search-toggle"><i class="fas fa-search" aria-hidden="true"></i></span></button></a></li>
+</ul></nav>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+		</div>
+	</div>
+</div>
+</header><div class="fl-builder-content fl-builder-content-915 fl-builder-global-templates-locked" data-post-id="915" data-type="part">
+<div id="global-search-row" class="fl-row fl-row-full-width fl-row-bg-color fl-node-5d9a490507181" data-node="5d9a490507181">
+	<div class="fl-row-content-wrap">
+						<div class="fl-row-content fl-row-fixed-width fl-node-content">
+		
+<div class="fl-col-group fl-node-5d9a48d6c685f" data-node="5d9a48d6c685f">
+			<div class="fl-col fl-node-5d9a48d6c6861" data-node="5d9a48d6c6861">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-pp-search-form fl-node-5d9a48d6c6862" data-node="5d9a48d6c6862">
+	<div class="fl-module-content fl-node-content">
+		<div class="pp-search-form-wrap pp-search-form--style-classic pp-search-form--button-type-icon">
+	<form class="pp-search-form" role="search" action="https://davekuhar.github.io/cciventures/" method="get">
+				<div class="pp-search-form__container">
+						<input placeholder="Search" class="pp-search-form__input" type="search" name="s" title="Search" value="">
+						<button class="pp-search-form__submit" type="submit">
+									<i class="fa fa-search" aria-hidden="true"></i>
+					<span class="pp-screen-reader-text">Search</span>
+							</button>
+								</div>
+	</form>
+</div>	</div>
+</div>
+	</div>
+</div>
+	</div>
+		</div>
+	</div>
+</div>
+</div>	<div id="fl-main-content" class="fl-page-content" itemprop="mainContentOfPage" role="main">
+
+		<div class="fl-builder-content fl-builder-content-806 fl-builder-global-templates-locked" data-post-id="806">
+<div class="fl-row fl-row-fixed-width fl-row-bg-none fl-node-5d9942e621d70" data-node="5d9942e621d70">
+	<div class="fl-row-content-wrap">
+						<div class="fl-row-content fl-row-fixed-width fl-node-content">
+		
+<div class="fl-col-group fl-node-5d99437d74415" data-node="5d99437d74415">
+			<div class="fl-col fl-node-5d99437d744b2 fl-col-small" data-node="5d99437d744b2">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-photo fl-node-5d99438a64420" data-node="5d99438a64420">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-photo fl-photo-align-center" itemscope itemtype="https://schema.org/ImageObject">
+	<div class="fl-photo-content fl-photo-img-jpg">
+				<img class="fl-photo-img wp-image-858 size-full" src="https://davekuhar.github.io/cciventures/wp-content/uploads/Julie-Carter.jpg" alt="Julie Carter" itemprop="image" height="276" width="276" title="Julie Carter" srcset="https://davekuhar.github.io/cciventures/wp-content/uploads/Julie-Carter.jpg 276w, https://davekuhar.github.io/cciventures/wp-content/uploads/Julie-Carter-240x240.jpg 240w, https://davekuhar.github.io/cciventures/wp-content/uploads/Julie-Carter-125x125.jpg 125w" sizes="(max-width: 276px) 100vw, 276px">
+					</div>
+	</div>
+	</div>
+</div>
+<div class="fl-module fl-module-photo fl-node-5da4ea73a4b27" data-node="5da4ea73a4b27">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-photo fl-photo-align-center" itemscope itemtype="https://schema.org/ImageObject">
+	<div class="fl-photo-content fl-photo-img-jpg">
+				<img class="fl-photo-img wp-image-1906 size-full" src="https://davekuhar.github.io/cciventures/wp-content/uploads/Carter-caricature.jpg" alt="Carter-caricature" itemprop="image" height="400" width="400" title="Carter-caricature" srcset="https://davekuhar.github.io/cciventures/wp-content/uploads/Carter-caricature.jpg 400w, https://davekuhar.github.io/cciventures/wp-content/uploads/Carter-caricature-240x240.jpg 240w, https://davekuhar.github.io/cciventures/wp-content/uploads/Carter-caricature-125x125.jpg 125w" sizes="(max-width: 400px) 100vw, 400px">
+					</div>
+	</div>
+	</div>
+</div>
+	</div>
+</div>
+			<div class="fl-col fl-node-5d99437d744b5 fl-col-has-cols" data-node="5d99437d744b5">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-heading fl-node-5d99431b776a7" data-node="5d99431b776a7">
+	<div class="fl-module-content fl-node-content">
+		<h1 class="fl-heading">
+		<span class="fl-heading-text">Julie Carter</span>
+	</h1>
+	</div>
+</div>
+<div class="fl-module fl-module-heading fl-node-5d99432c4c50b" data-node="5d99432c4c50b">
+	<div class="fl-module-content fl-node-content">
+		<h2 class="fl-heading">
+		<span class="fl-heading-text">Administrative Program Coordinator</span>
+	</h2>
+	</div>
+</div>
+<div class="fl-module fl-module-fl-post-content fl-node-5d9942e621d77" data-node="5d9942e621d77">
+	<div class="fl-module-content fl-node-content">
+		
+<p>As Administrative Program Coordinator for
+Cleveland Clinic Ventures (CCV), Julie develops, implements, manages and
+maintains the operational systems and activities of CCV. She also functions as
+the administrative, technical and operational resource for the CCV team. &nbsp;<strong></strong></p>
+
+
+
+<p>Julie has worked at Cleveland Clinic for 5 years,
+previously holding a role in Innovations with the Global Cardiovascular
+Innovation Center where she assisted with coordinating efforts within GCIC’s Incubator/Accelerator
+Program and provided support to the tenants.</p>
+	</div>
+</div>
+<div class="fl-module fl-module-heading fl-node-5d9943b24d031" data-node="5d9943b24d031">
+	<div class="fl-module-content fl-node-content">
+		<h4 class="fl-heading">
+		<span class="fl-heading-text">Contact Information</span>
+	</h4>
+	</div>
+</div>
+<div class="fl-module fl-module-callout fl-node-5d9943d1024eb bio-phone" data-node="5d9943d1024eb">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-callout fl-callout-left fl-callout-has-icon fl-callout-icon-left">
+	
+	<span class="fl-icon">
+				<i class="fas fa-phone-alt" aria-hidden="true"></i>
+			</span>
+			<div id="fl-icon-text-5d9943d1024eb" class="fl-icon-text fl-icon-text-wrap fl-icon-text-empty">
+											</div>
+	
+	<div class="fl-callout-content">
+		<h3 class="fl-callout-title"><span class="fl-callout-title-text"></span></h3>		<div class="fl-callout-text-wrap">
+			<div class="fl-callout-text">
+<p>216-445-1917</p>
+</div>		</div>
+	</div>
+	</div>
+	</div>
+</div>
+
+<div class="fl-col-group fl-node-5d9972af4f229 fl-col-group-nested" data-node="5d9972af4f229">
+			<div class="fl-col fl-node-5d9972af4f302 fl-col-small bio-email-icon" data-node="5d9972af4f302">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-icon fl-node-5d996e98b4545" data-node="5d996e98b4545">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-icon-wrap">
+
+	<span class="fl-icon">
+								<a href="mailto:carterj2@ccf.org" target="_self" aria-label="link to mailto:carterj2@ccf.org">
+							<i class="fas fa-envelope" aria-hidden="true"></i>
+				</a>
+			</span>
+			<div id="fl-icon-text-5d996e98b4545" class="fl-icon-text fl-icon-text-empty">
+						<a href="mailto:carterj2@ccf.org" target="_self" class="fl-icon-text-link fl-icon-text-wrap">
+												</a>
+					</div>
+	
+</div>
+	</div>
+</div>
+	</div>
+</div>
+			<div class="fl-col fl-node-5d9972af4f304 bio-linkedin-icon" data-node="5d9972af4f304">
+	<div class="fl-col-content fl-node-content">
+		</div>
+</div>
+	</div>
+	</div>
+</div>
+	</div>
+
+<div class="fl-col-group fl-node-5d9942e621d74" data-node="5d9942e621d74">
+			<div class="fl-col fl-node-5d9942e621d76" data-node="5d9942e621d76">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-fl-post-navigation fl-node-5d9942e621d7e" data-node="5d9942e621d7e">
+	<div class="fl-module-content fl-node-content">
+		
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links">
+<div class="nav-previous"><a href="https://davekuhar.github.io/cciventures/ventures_bio/joseph-rich/" rel="prev">&larr; Joseph Rich, JD</a></div>
+<div class="nav-next"><a href="https://davekuhar.github.io/cciventures/ventures_bio/mark-stovsky-md/" rel="next">Mark Stovsky, MD &rarr;</a></div>
+</div>
+	</nav>	</div>
+</div>
+	</div>
+</div>
+	</div>
+		</div>
+	</div>
+</div>
+</div>
+	</div>
+<!-- .fl-page-content -->
+	<footer class="fl-builder-content fl-builder-content-161 fl-builder-global-templates-locked" data-post-id="161" data-type="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter"><div class="fl-row fl-row-full-width fl-row-bg-color fl-node-5d8da9fdbe259 fl-row-custom-height fl-row-align-center" data-node="5d8da9fdbe259">
+	<div class="fl-row-content-wrap">
+						<div class="fl-row-content fl-row-fixed-width fl-node-content">
+		
+<div class="fl-col-group fl-node-5d8da9fdbe25c" data-node="5d8da9fdbe25c">
+			<div class="fl-col fl-node-5d8da9fdbe25d" data-node="5d8da9fdbe25d">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-photo fl-node-5d8daa284781c" data-node="5d8daa284781c">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-photo fl-photo-align-center" itemscope itemtype="https://schema.org/ImageObject">
+	<div class="fl-photo-content fl-photo-img-svg">
+				<img class="fl-photo-img wp-image-33" src="https://davekuhar.github.io/cciventures/wp-content/uploads/cleveland-clinic-light.svg" alt="cleveland-clinic-light" itemprop="image" title="cleveland-clinic-light">
+					</div>
+	</div>
+	</div>
+</div>
+<div class="fl-module fl-module-rich-text fl-node-5d8da9fdbe25e" data-node="5d8da9fdbe25e">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-rich-text">
+	<p style="text-align: center;">© Cleveland Clinic  |  Innovation at Cleveland Clinic</p>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+		</div>
+	</div>
+</div>
+</footer>	</div>
+<!-- .fl-page -->
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/bb-plugin/js/jquery.ba-throttle-debounce.min.js?ver=2.3.2.5"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/bb-plugin/js/jquery.fitvids.min.js?ver=1.2"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/uploads/bb-plugin/cache/843dffaf1dbfcbb5175393d02f21ed5d-layout-bundle.js?ver=2.3.2.5-1.3.1"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/plugins/bb-plugin/js/jquery.magnificpopup.min.js?ver=2.3.2.5"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/themes/bb-theme/js/bootstrap-4.min.js?ver=1.7.6.2"></script>
+<script>
+var themeopts = {"medium_breakpoint":"992","mobile_breakpoint":"768"};
+</script>
+<script src="https://davekuhar.github.io/cciventures/wp-content/themes/bb-theme/js/theme.min.js?ver=1.7.6.2"></script>
+<script src="https://davekuhar.github.io/cciventures/wp-includes/js/wp-embed.min.js?ver=5.4.7"></script>
+</body>
+</html>

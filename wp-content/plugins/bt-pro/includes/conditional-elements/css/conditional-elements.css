@@ -1,0 +1,10 @@
+[bt_default_visibility="show"]{
+  display:inherit;
+}
+[bt_default_visibility="hide"]{
+  display:none;
+}
+
+.fl-builder-edit [bt_default_visibility]{
+  display:inherit !important;
+}

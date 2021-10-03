@@ -1,0 +1,9 @@
+
+#tiptip_content{
+  white-space: pre-wrap;
+}
+
+#tiptip_content a{
+  color: white;
+  text-decoration:underline;
+}
